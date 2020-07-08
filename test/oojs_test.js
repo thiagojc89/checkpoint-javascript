@@ -1,16 +1,7 @@
-var should = require("chai").should()
 var expect = require("chai").expect
-var fs = require("fs")
-var oojs = fs.readFileSync("oojs.js","utf8")
+const { Playlist, myPlaylist } = require('../oojs.js');
 
-
-describe('OOJS #1', function() {
-  try {
-    var Playlist = require("../oojs.js").Playlist
-  }
-  catch(e) {
-    console.log(e)
-  }
+describe('Playlist', ()=> {
   it('Playlist is a class', function() {
     expect(Playlist).to.be.a('function')
   })
@@ -24,15 +15,6 @@ describe('OOJS #1', function() {
     var testPlaylist = new Playlist('test')
     expect(testPlaylist.addSong).to.be.a('function')
   })
-})
-
-describe('OOJS #2', function() {
-  try {
-    eval(oojs)
-  }
-  catch(e) {
-    console.log(e)
-  }
   it('myPlaylist is an instance of Playlist', function() {
     expect(myPlaylist.__proto__.constructor.name).to.equal("Playlist")
   })
